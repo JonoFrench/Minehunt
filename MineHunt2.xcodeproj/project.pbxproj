@@ -1,0 +1,439 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		345A4CD51AB856400034CC4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 345A4CD41AB856400034CC4D /* main.m */; };
+		345A4CD81AB856400034CC4D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 345A4CD71AB856400034CC4D /* AppDelegate.m */; };
+		345A4CDB1AB856400034CC4D /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 345A4CDA1AB856400034CC4D /* GameScene.m */; };
+		345A4CDD1AB856400034CC4D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 345A4CDC1AB856400034CC4D /* GameScene.sks */; };
+		345A4CE01AB856400034CC4D /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 345A4CDF1AB856400034CC4D /* GameViewController.m */; };
+		345A4CE31AB856400034CC4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 345A4CE11AB856400034CC4D /* Main.storyboard */; };
+		345A4CE51AB856400034CC4D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 345A4CE41AB856400034CC4D /* Images.xcassets */; };
+		345A4CE81AB856400034CC4D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 345A4CE61AB856400034CC4D /* LaunchScreen.xib */; };
+		345A4CF41AB856400034CC4D /* MineHunt2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 345A4CF31AB856400034CC4D /* MineHunt2Tests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		345A4CEE1AB856400034CC4D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 345A4CC71AB856400034CC4D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 345A4CCE1AB856400034CC4D;
+			remoteInfo = MineHunt2;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		345A4CCF1AB856400034CC4D /* MineHunt2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MineHunt2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		345A4CD31AB856400034CC4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		345A4CD41AB856400034CC4D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		345A4CD61AB856400034CC4D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		345A4CD71AB856400034CC4D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		345A4CD91AB856400034CC4D /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		345A4CDA1AB856400034CC4D /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		345A4CDC1AB856400034CC4D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		345A4CDE1AB856400034CC4D /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		345A4CDF1AB856400034CC4D /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		345A4CE21AB856400034CC4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		345A4CE41AB856400034CC4D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		345A4CE71AB856400034CC4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		345A4CED1AB856400034CC4D /* MineHunt2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MineHunt2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		345A4CF21AB856400034CC4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		345A4CF31AB856400034CC4D /* MineHunt2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineHunt2Tests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		345A4CCC1AB856400034CC4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		345A4CEA1AB856400034CC4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		345A4CC61AB856400034CC4D = {
+			isa = PBXGroup;
+			children = (
+				345A4CD11AB856400034CC4D /* MineHunt2 */,
+				345A4CF01AB856400034CC4D /* MineHunt2Tests */,
+				345A4CD01AB856400034CC4D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		345A4CD01AB856400034CC4D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				345A4CCF1AB856400034CC4D /* MineHunt2.app */,
+				345A4CED1AB856400034CC4D /* MineHunt2Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		345A4CD11AB856400034CC4D /* MineHunt2 */ = {
+			isa = PBXGroup;
+			children = (
+				345A4CD61AB856400034CC4D /* AppDelegate.h */,
+				345A4CD71AB856400034CC4D /* AppDelegate.m */,
+				345A4CD91AB856400034CC4D /* GameScene.h */,
+				345A4CDA1AB856400034CC4D /* GameScene.m */,
+				345A4CDC1AB856400034CC4D /* GameScene.sks */,
+				345A4CDE1AB856400034CC4D /* GameViewController.h */,
+				345A4CDF1AB856400034CC4D /* GameViewController.m */,
+				345A4CE11AB856400034CC4D /* Main.storyboard */,
+				345A4CE41AB856400034CC4D /* Images.xcassets */,
+				345A4CE61AB856400034CC4D /* LaunchScreen.xib */,
+				345A4CD21AB856400034CC4D /* Supporting Files */,
+			);
+			path = MineHunt2;
+			sourceTree = "<group>";
+		};
+		345A4CD21AB856400034CC4D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				345A4CD31AB856400034CC4D /* Info.plist */,
+				345A4CD41AB856400034CC4D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		345A4CF01AB856400034CC4D /* MineHunt2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				345A4CF31AB856400034CC4D /* MineHunt2Tests.m */,
+				345A4CF11AB856400034CC4D /* Supporting Files */,
+			);
+			path = MineHunt2Tests;
+			sourceTree = "<group>";
+		};
+		345A4CF11AB856400034CC4D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				345A4CF21AB856400034CC4D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		345A4CCE1AB856400034CC4D /* MineHunt2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 345A4CF71AB856400034CC4D /* Build configuration list for PBXNativeTarget "MineHunt2" */;
+			buildPhases = (
+				345A4CCB1AB856400034CC4D /* Sources */,
+				345A4CCC1AB856400034CC4D /* Frameworks */,
+				345A4CCD1AB856400034CC4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MineHunt2;
+			productName = MineHunt2;
+			productReference = 345A4CCF1AB856400034CC4D /* MineHunt2.app */;
+			productType = "com.apple.product-type.application";
+		};
+		345A4CEC1AB856400034CC4D /* MineHunt2Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 345A4CFA1AB856400034CC4D /* Build configuration list for PBXNativeTarget "MineHunt2Tests" */;
+			buildPhases = (
+				345A4CE91AB856400034CC4D /* Sources */,
+				345A4CEA1AB856400034CC4D /* Frameworks */,
+				345A4CEB1AB856400034CC4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				345A4CEF1AB856400034CC4D /* PBXTargetDependency */,
+			);
+			name = MineHunt2Tests;
+			productName = MineHunt2Tests;
+			productReference = 345A4CED1AB856400034CC4D /* MineHunt2Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		345A4CC71AB856400034CC4D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Jonathan French";
+				TargetAttributes = {
+					345A4CCE1AB856400034CC4D = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					345A4CEC1AB856400034CC4D = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 345A4CCE1AB856400034CC4D;
+					};
+				};
+			};
+			buildConfigurationList = 345A4CCA1AB856400034CC4D /* Build configuration list for PBXProject "MineHunt2" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 345A4CC61AB856400034CC4D;
+			productRefGroup = 345A4CD01AB856400034CC4D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				345A4CCE1AB856400034CC4D /* MineHunt2 */,
+				345A4CEC1AB856400034CC4D /* MineHunt2Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		345A4CCD1AB856400034CC4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				345A4CE81AB856400034CC4D /* LaunchScreen.xib in Resources */,
+				345A4CE51AB856400034CC4D /* Images.xcassets in Resources */,
+				345A4CDD1AB856400034CC4D /* GameScene.sks in Resources */,
+				345A4CE31AB856400034CC4D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		345A4CEB1AB856400034CC4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		345A4CCB1AB856400034CC4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				345A4CE01AB856400034CC4D /* GameViewController.m in Sources */,
+				345A4CD81AB856400034CC4D /* AppDelegate.m in Sources */,
+				345A4CDB1AB856400034CC4D /* GameScene.m in Sources */,
+				345A4CD51AB856400034CC4D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		345A4CE91AB856400034CC4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				345A4CF41AB856400034CC4D /* MineHunt2Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		345A4CEF1AB856400034CC4D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 345A4CCE1AB856400034CC4D /* MineHunt2 */;
+			targetProxy = 345A4CEE1AB856400034CC4D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		345A4CE11AB856400034CC4D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				345A4CE21AB856400034CC4D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		345A4CE61AB856400034CC4D /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				345A4CE71AB856400034CC4D /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		345A4CF51AB856400034CC4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		345A4CF61AB856400034CC4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		345A4CF81AB856400034CC4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MineHunt2/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		345A4CF91AB856400034CC4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MineHunt2/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		345A4CFB1AB856400034CC4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MineHunt2Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MineHunt2.app/MineHunt2";
+			};
+			name = Debug;
+		};
+		345A4CFC1AB856400034CC4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MineHunt2Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MineHunt2.app/MineHunt2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		345A4CCA1AB856400034CC4D /* Build configuration list for PBXProject "MineHunt2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				345A4CF51AB856400034CC4D /* Debug */,
+				345A4CF61AB856400034CC4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		345A4CF71AB856400034CC4D /* Build configuration list for PBXNativeTarget "MineHunt2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				345A4CF81AB856400034CC4D /* Debug */,
+				345A4CF91AB856400034CC4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		345A4CFA1AB856400034CC4D /* Build configuration list for PBXNativeTarget "MineHunt2Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				345A4CFB1AB856400034CC4D /* Debug */,
+				345A4CFC1AB856400034CC4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 345A4CC71AB856400034CC4D /* Project object */;
+}
