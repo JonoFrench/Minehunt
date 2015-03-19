@@ -33,33 +33,40 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(homeButtonNotification) name:@"menuReturn" object:nil];
     // Configure the view.
     SKView * skView = (SKView *)self.view;
-    skView.showsFPS = YES;
-    skView.showsNodeCount = YES;
+    skView.showsFPS = NO;
+    skView.showsNodeCount = NO;
     /* Sprite Kit applies additional optimizations to improve rendering performance */
-    skView.ignoresSiblingOrder = YES;
+    skView.ignoresSiblingOrder = NO;
     
     // Create and configure the scene.
-    GameScene *scene = [GameScene unarchiveFromFile:@"GameScene"];
+    GameScene *scene = [[GameScene alloc]initWithSize:self.view.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.
     [skView presentScene:scene];
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"menuReturn" object:nil];
+}
+
 - (BOOL)shouldAutorotate
 {
-    return YES;
+    return NO;
 }
 
 - (NSUInteger)supportedInterfaceOrientations
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationMaskAllButUpsideDown;
+        return UIInterfaceOrientationMaskPortrait;
     } else {
-        return UIInterfaceOrientationMaskAll;
+        return UIInterfaceOrientationMaskPortrait;
     }
 }
 
@@ -71,6 +78,11 @@
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
+}
+
+-(void)homeButtonNotification
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
