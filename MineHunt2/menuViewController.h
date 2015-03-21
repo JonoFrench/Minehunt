@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GameViewController.h"
 
 @interface menuViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
+@property (strong,nonatomic) GameViewController *p;
 - (IBAction)actPlay:(id)sender;
 
 @end

@@ -7,16 +7,16 @@
 //
 
 #import "gameTile.h"
-#import "globalSettings.h"
 #import "MineHuntImages.h"
 
 @implementation gameTile
 
--(instancetype) initWithPositionX:(int)x andY:(int)y Row:(int)row Column:(int)col
+-(instancetype) initWithPositionX:(int)x andY:(int)y Row:(int)row Column:(int)col TileSize:(int)tilesize
 {
-    SKTexture *tex = [SKTexture textureWithImage:[globalSettings getBlankTile]];
+    _tileSize = CGRectMake(0, 0, tilesize, tilesize);
+    _tex = [SKTexture textureWithImage:[MineHuntImages imageOfBlankWithFrame:_tileSize]];
     
-    self = [super initWithTexture:tex];
+    self = [super initWithTexture:_tex];
     
     if(self)
     {
@@ -81,16 +81,15 @@
     _hasHint = true;
     _hasTile = false;
     
-    SKTexture *tex;
     if (_numHints ==0)
     {
-        tex = [SKTexture textureWithImage:[globalSettings getEmptyTile]];
+        _tex = [SKTexture textureWithImage:[MineHuntImages imageOfEmptyWithFrame:_tileSize]];
     }
     else
     {
-        tex = [SKTexture textureWithImage:[globalSettings getNumberTile:_numHints]];
+        _tex = [SKTexture textureWithImage:[MineHuntImages imageOfBombCountWithFrame:_tileSize numBombs:[NSString stringWithFormat:@"%d",_numHints]]];
     }
-    [self setTexture:tex];
+    [self setTexture:_tex];
     
     // we don't really want to display a 0
     // but we do need to check our surroundings for other space!
@@ -102,23 +101,23 @@
 
 -(void)showLetter:(NSString *)letter
 {
-    SKTexture *tex = [SKTexture textureWithImage:[globalSettings getLetterTile:letter]];
-    [self setTexture:tex];
+    _tex = [SKTexture textureWithImage:[MineHuntImages imageOfBombCountWithFrame:_tileSize numBombs:letter]];
+    [self setTexture:_tex];
     _hasTile = false;
 }
 
 -(void)showTile
 {
-    SKTexture *tex = [SKTexture textureWithImage:[globalSettings getBlankTile]];
-    [self setTexture:tex];
+    _tex = [SKTexture textureWithImage:[MineHuntImages imageOfBlankWithFrame:_tileSize]];
+    [self setTexture:_tex];
     _hasQuestion = false;
     _hasFlag = false;
 }
 
 -(void)showQuestion
 {
-    SKTexture *tex = [SKTexture textureWithImage:[globalSettings getQuestionTile]];
-    [self setTexture:tex];
+    _tex = [SKTexture textureWithImage:[MineHuntImages imageOfQuestionWithFrame:_tileSize]];
+    [self setTexture:_tex];
     _hasQuestion = true;
     _hasFlag = false;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"questButton" object:self];
@@ -128,8 +127,8 @@
 {
     if (!_hasHint)
     {
-        SKTexture *tex = [SKTexture textureWithImage:[globalSettings getFlagTile]];
-        [self setTexture:tex];
+        _tex = [SKTexture textureWithImage:[MineHuntImages imageOfFlagWithFrame:_tileSize]];
+        [self setTexture:_tex];
         _hasFlag = true;
         _hasQuestion = false;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"checkFlags" object:self];
@@ -138,22 +137,21 @@
 
 -(void)showBomb:(float)expcount
 {
-    SKTexture *tex = [SKTexture textureWithImage:[globalSettings getMineTile]];
-    [self setTexture:tex];
+    _tex = [SKTexture textureWithImage:[MineHuntImages imageOfMineWithFrame:_tileSize]];
+    [self setTexture:_tex];
     [NSTimer scheduledTimerWithTimeInterval:expcount target:self selector:@selector(explosion) userInfo:nil repeats:NO];
 }
 
 -(void)explosion
 {
-    SKAction* soundAction = [SKAction playSoundFileNamed:@"explosion.caf" waitForCompletion:NO];
-    [self runAction:soundAction];
-    SKTexture *tex = [SKTexture textureWithImage:[globalSettings getExplosionTile]];
-    [self setTexture:tex];
-    SKEmitterNode* smokeTrail;
+    _soundAction = [SKAction playSoundFileNamed:@"explosion.caf" waitForCompletion:NO];
+    [self runAction:_soundAction];
+    _tex = [SKTexture textureWithImage:[MineHuntImages imageOfExplosionWithFrame:_tileSize]];
+    [self setTexture:_tex];
     NSString *smokePath = [[NSBundle mainBundle] pathForResource:@"spark" ofType:@"sks"];
-    smokeTrail = [NSKeyedUnarchiver unarchiveObjectWithFile:smokePath];
-    smokeTrail.position = self.position;
-    [self.parent addChild:smokeTrail];
+    _smokeTrail = [NSKeyedUnarchiver unarchiveObjectWithFile:smokePath];
+    _smokeTrail.position = self.position;
+    [self.parent addChild:_smokeTrail];
 }
 
 -(void)showExplosion
@@ -164,7 +162,6 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-//    UITouch *touch = [touches anyObject];
     if(_gameOver) return;
     if (state != kTileStateUnTouched) return;
     _tileTap++;

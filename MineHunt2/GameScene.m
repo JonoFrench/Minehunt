@@ -8,9 +8,8 @@
 
 #import "GameScene.h"
 #import "MineHuntImages.h"
-#import "globalSettings.h"
 #import "gameTile.h"
-
+#import "highScores.h"
 
 @implementation GameScene
 
@@ -21,12 +20,12 @@
     
     _screenWidth = view.bounds.size.width;
     _screenHeight = view.bounds.size.height;
-    [globalSettings setNumberofBombs:16];
-    [globalSettings setNumberofRows:8];
-    [globalSettings setNumberofColumns:8];
-    [globalSettings setWindowWidth:_screenWidth];
-    [globalSettings setWindowHeight:_screenHeight];
-    _flagCounter = [globalSettings getNumberofBombs];
+    _numBombs = 8;
+    _numRows = 8;
+    _numCols = 8;
+
+    _timerTime = 0;
+    _flagCounter = _numBombs;
     _gameover = false;
     
     _timeLabel = [SKLabelNode labelNodeWithFontNamed:@"Marker Felt"];
@@ -53,44 +52,39 @@
 
 -(void)setGame
 {
-    int totalmines = [globalSettings getNumberofBombs];
-    int cols = [globalSettings getNumberofColumns];
-    int rows = [globalSettings getNumberofRows];
-    int tilesize = [globalSettings getTileSize];
-    int startpos = [globalSettings getWindowHeight]-(tilesize/2);
-    int droppedmines = 0;
+    int tilesize = _screenWidth/_numCols;
+    int startpos = _screenHeight-(tilesize/2);
     int x,y;
 
-    _mineArray = [[NSMutableArray alloc]initWithCapacity:rows];
+    _mineArray = [[NSMutableArray alloc]initWithCapacity:_numRows];
     gameTile * gt;
 
-    for (int x1=0; x1<rows; x1++) {
-        NSMutableArray *colArray = [[NSMutableArray alloc]initWithCapacity:cols];
-        for (int y1=0; y1<cols; y1++) {
-            gt = [[gameTile alloc] initWithPositionX:(tilesize/2)+(y1*tilesize) andY:startpos-(x1*tilesize) Row:x1 Column:y1];
+    for (int x1=0; x1<_numRows; x1++) {
+        NSMutableArray *colArray = [[NSMutableArray alloc]initWithCapacity:_numCols];
+        for (int y1=0; y1<_numCols; y1++) {
+            gt = [[gameTile alloc] initWithPositionX:(tilesize/2)+(y1*tilesize) andY:startpos-(x1*tilesize) Row:x1 Column:y1 TileSize:tilesize];
             [colArray insertObject:gt atIndex:y1];
             [self addChild:gt];
         }
         [_mineArray insertObject:colArray atIndex:x1];
     }
 
-    for (int mines=0; droppedmines<(totalmines); mines++) {
-        x = arc4random()%rows;
-        y = arc4random()%cols;
+    for (int mines=0; mines<=_numBombs; mines++) {
+        x = arc4random()%_numRows;
+        y = arc4random()%_numCols;
         gameTile * gt = [[_mineArray objectAtIndex:x]objectAtIndex:y]; //minearray[x][y];
-        if( [gt hasMine]== false  )
+        if(![gt hasMine])
         {
-            [ gt setMine:true];
-            droppedmines++;
+            [gt setMine:true];
         }  
     }
     
     //set hints
     int c=0;
-    for (int x1=0; x1<rows; x1++) {
-        for (int y1=0; y1<cols; y1++) {
+    for (int x1=0; x1<_numRows; x1++) {
+        for (int y1=0; y1<_numCols; y1++) {
             gameTile * gt = [[_mineArray objectAtIndex:x1]objectAtIndex:y1];
-            if([gt hasMine] != true)
+            if(![gt hasMine])
             {
                 c = [self getHint:x1 col:y1];
                 [gt setHint:c];
@@ -104,19 +98,17 @@
     int hint = 0;
     int startcol,startrow;
     int endcol,endrow;
-    int cols = [globalSettings getNumberofColumns];
-    int rows = [globalSettings getNumberofRows];
     
     startcol = MAX(0, col-1);
-    endcol = MIN(cols-1, col+1);
+    endcol = MIN(_numCols-1, col+1);
     startrow = MAX(0, row-1);
-    endrow = MIN(rows-1, row+1);
+    endrow = MIN(_numRows-1, row+1);
     
     for(int r = startrow; r<=endrow;r++)
     {
         for (int c = startcol;c<=endcol;c++){
-            gameTile * gt = [[_mineArray objectAtIndex:r]objectAtIndex:c];// minearray[r][c];
-            if ([gt hasMine]== true) {
+            gameTile * gt = [[_mineArray objectAtIndex:r]objectAtIndex:c];
+            if ([gt hasMine]) {
                 hint++;
             }
         }
@@ -128,19 +120,17 @@
 {
     int startcol,startrow;
     int endcol,endrow;
-    int cols = [globalSettings getNumberofColumns];
-    int rows = [globalSettings getNumberofRows];
     
     startcol = MAX(0, col-1);
-    endcol = MIN(cols-1, col+1);
+    endcol = MIN(_numCols-1, col+1);
     startrow = MAX(0, row-1);
-    endrow = MIN(rows-1, row+1);
+    endrow = MIN(_numRows-1, row+1);
     
     for(int r = startrow; r<=endrow;r++)
     {
         for (int c = startcol;c<=endcol;c++){
             gameTile * gt = [[_mineArray objectAtIndex:r]objectAtIndex:c];
-            if ([gt hasMine]==false && [gt hasHint]==false) {
+            if (![gt hasMine] && ![gt hasHint]) {
                 [gt showHint];
             }
         }
@@ -151,19 +141,16 @@
 {
     gameTile * gt = [notification object];
     [self checkAround:[gt getArrayCol] col:[gt getArrayRow]];
-   // NSLog(@"emptyTile Triggered! row %d, col %d",[gt getArrayRow],[gt getArrayCol]);
+//    NSLog(@"emptyTile Triggered! row %d, col %d",[gt getArrayRow],[gt getArrayCol]);
 }
 
 -(void)checkFlagsNotification:(NSNotification *) notification
 {
-    int cols = [globalSettings getNumberofColumns];
-    int rows = [globalSettings getNumberofRows];
-    
     _flagCounter--;
     [self flagNumber];
     int c=0;
-    for (int x1=0; x1<rows; x1++) {
-        for (int y1=0; y1<cols; y1++) {
+    for (int x1=0; x1<_numRows; x1++) {
+        for (int y1=0; y1<_numCols; y1++) {
             gameTile * gt = [[_mineArray objectAtIndex:x1]objectAtIndex:y1];
             if([gt hasMine] == true && [gt hasFlag]==true)
             {
@@ -172,26 +159,25 @@
         }
     }
     
-    if (c==[globalSettings getNumberofBombs])
+    if (c==_numBombs)
     {
         _gameover = true;        
         //add the score to the highscore
-        [globalSettings newScore];
+        highScores *hs = [[highScores alloc]init];
+        [hs newScore:_timerTime];
         SKTexture *tex = [SKTexture textureWithImage:[MineHuntImages imageOfWonWithFrame:CGRectMake(0, 0,_screenWidth/2,(_screenWidth/2)/3)]];
         _gameOver = [[gameButton alloc]initWithTexture:tex];
         [_gameOver setPosition:CGPointMake(_screenWidth/2, 50+(_screenWidth/2)/3)];
-        [_gameOver setTouchUpInsideTarget:self action:@selector(gameOver)];
+        [_gameOver setTouchUpInsideTarget:self action:@selector(gameReturn)];
         [self addChild:_gameOver];
     }
 }
 
 -(void)gameOverNotification:(NSNotification *) notification
 {
-    int cols = [globalSettings getNumberofColumns];
-    int rows = [globalSettings getNumberofRows];
     float expcount = 0.25;
-    for (int x1=0; x1<rows; x1++) {
-        for (int y1=0; y1<cols; y1++) {
+    for (int x1=0; x1<_numRows; x1++) {
+        for (int y1=0; y1<_numCols; y1++) {
             gameTile * gt = [[_mineArray objectAtIndex:x1]objectAtIndex:y1];
             if([gt getGameOver] != true && [gt hasMine]==true)
             {
@@ -215,6 +201,7 @@
 
 -(void)gameReturn
 {
+    _mineArray = nil;
     [self.view presentScene:nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"menuReturn" object:self];
 }
@@ -223,10 +210,10 @@
 {
     if (!_gameover)
     {
-        [globalSettings timerTick];
+        _timerTime++;
     }
-    int sec = [globalSettings getTimerTime] %60;
-    int min = [globalSettings getTimerTime] /60;
+    int sec = _timerTime %60;
+    int min = _timerTime /60;
     [_timeLabel setText:[NSString stringWithFormat:@"Time: %d:%.2d",min,sec]];
 }
 
@@ -234,5 +221,8 @@
 {
     [_flagLabel setText:[NSString stringWithFormat:@"Flag: %d",_flagCounter]];
 }
+
+
+
 
 @end

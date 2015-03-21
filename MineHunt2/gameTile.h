@@ -36,6 +36,10 @@ typedef enum tagTileState {
     int _arrayRow;
     int _tileTap;
 }
+@property (strong,nonatomic) SKTexture *tex;
+@property (strong,nonatomic) SKEmitterNode* smokeTrail;
+@property (strong,nonatomic) SKAction* soundAction;
+@property (nonatomic) CGRect tileSize;
 
 -(bool)hasMine;
 -(bool)hasFlag;
@@ -51,7 +55,7 @@ typedef enum tagTileState {
 -(void)setFlag:(bool)flag;
 -(void)setGameOver:(bool)gameover;
 
--(id) initWithPositionX:(int)x andY:(int)y Row:(int)row Column:(int)col;
+-(id) initWithPositionX:(int)x andY:(int)y Row:(int)row Column:(int)col TileSize:(int)tilesize;
 -(void)showHint;
 -(void)showBomb:(float)expcount;
 -(void)showLetter:(NSString *)letter;

@@ -11,20 +11,20 @@
 
 @implementation SKScene (Unarchive)
 
-+ (instancetype)unarchiveFromFile:(NSString *)file {
-    /* Retrieve scene file path from the application bundle */
-    NSString *nodePath = [[NSBundle mainBundle] pathForResource:file ofType:@"sks"];
-    /* Unarchive the file to an SKScene object */
-    NSData *data = [NSData dataWithContentsOfFile:nodePath
-                                          options:NSDataReadingMappedIfSafe
-                                            error:nil];
-    NSKeyedUnarchiver *arch = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
-    [arch setClass:self forClassName:@"SKScene"];
-    SKScene *scene = [arch decodeObjectForKey:NSKeyedArchiveRootObjectKey];
-    [arch finishDecoding];
-    
-    return scene;
-}
+//+ (instancetype)unarchiveFromFile:(NSString *)file {
+//    /* Retrieve scene file path from the application bundle */
+//    NSString *nodePath = [[NSBundle mainBundle] pathForResource:file ofType:@"sks"];
+//    /* Unarchive the file to an SKScene object */
+//    NSData *data = [NSData dataWithContentsOfFile:nodePath
+//                                          options:NSDataReadingMappedIfSafe
+//                                            error:nil];
+//    NSKeyedUnarchiver *arch = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+//    [arch setClass:self forClassName:@"SKScene"];
+//    SKScene *scene = [arch decodeObjectForKey:NSKeyedArchiveRootObjectKey];
+//    [arch finishDecoding];
+//    
+//    return scene;
+//}
 
 @end
 
@@ -38,15 +38,14 @@
     SKView * skView = (SKView *)self.view;
     skView.showsFPS = NO;
     skView.showsNodeCount = NO;
-    /* Sprite Kit applies additional optimizations to improve rendering performance */
     skView.ignoresSiblingOrder = NO;
     
     // Create and configure the scene.
-    GameScene *scene = [[GameScene alloc]initWithSize:self.view.bounds.size];
-    scene.scaleMode = SKSceneScaleModeAspectFill;
+    _scene = [[GameScene alloc]initWithSize:self.view.bounds.size];
+    _scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.
-    [skView presentScene:scene];
+    [skView presentScene:_scene];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -54,6 +53,7 @@
     [super viewWillDisappear:animated];
     
     [[NSNotificationCenter defaultCenter]removeObserver:self name:@"menuReturn" object:nil];
+
 }
 
 - (BOOL)shouldAutorotate
@@ -82,6 +82,9 @@
 
 -(void)homeButtonNotification
 {
+    _scene = nil;
+    SKView * skView = (SKView *)self.view;
+    skView = nil;
     [self.navigationController popViewControllerAnimated:YES];
 }
 

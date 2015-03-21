@@ -16,13 +16,13 @@
 		345A4CE81AB856400034CC4D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 345A4CE61AB856400034CC4D /* LaunchScreen.xib */; };
 		345A4CF41AB856400034CC4D /* MineHunt2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 345A4CF31AB856400034CC4D /* MineHunt2Tests.m */; };
 		345A4CFF1AB857E00034CC4D /* MineHuntImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 345A4CFE1AB857E00034CC4D /* MineHuntImages.m */; };
-		345A4D021AB859380034CC4D /* globalSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 345A4D011AB859380034CC4D /* globalSettings.m */; };
 		345A4D051AB859A40034CC4D /* gameTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 345A4D041AB859A40034CC4D /* gameTile.m */; };
 		345A4D071AB88C600034CC4D /* explosion.caf in Resources */ = {isa = PBXBuildFile; fileRef = 345A4D061AB88C0F0034CC4D /* explosion.caf */; };
 		345A4D0E1AB897160034CC4D /* spark.sks in Resources */ = {isa = PBXBuildFile; fileRef = 345A4D0C1AB897160034CC4D /* spark.sks */; };
 		345A4D0F1AB897160034CC4D /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 345A4D0D1AB897160034CC4D /* spark.png */; };
 		345A4D121AB9B3BD0034CC4D /* gameButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 345A4D111AB9B3BD0034CC4D /* gameButton.m */; };
 		345A4D151AB9BFDA0034CC4D /* menuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 345A4D141AB9BFDA0034CC4D /* menuViewController.m */; };
+		34790AB11ABDBD81004BA83A /* highScores.m in Sources */ = {isa = PBXBuildFile; fileRef = 34790AB01ABDBD81004BA83A /* highScores.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +53,6 @@
 		345A4CF31AB856400034CC4D /* MineHunt2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineHunt2Tests.m; sourceTree = "<group>"; };
 		345A4CFD1AB857E00034CC4D /* MineHuntImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineHuntImages.h; sourceTree = "<group>"; };
 		345A4CFE1AB857E00034CC4D /* MineHuntImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineHuntImages.m; sourceTree = "<group>"; };
-		345A4D001AB859380034CC4D /* globalSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = globalSettings.h; sourceTree = "<group>"; };
-		345A4D011AB859380034CC4D /* globalSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = globalSettings.m; sourceTree = "<group>"; };
 		345A4D031AB859A40034CC4D /* gameTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gameTile.h; sourceTree = "<group>"; };
 		345A4D041AB859A40034CC4D /* gameTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gameTile.m; sourceTree = "<group>"; };
 		345A4D061AB88C0F0034CC4D /* explosion.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = explosion.caf; sourceTree = "<group>"; };
@@ -64,6 +62,8 @@
 		345A4D111AB9B3BD0034CC4D /* gameButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gameButton.m; sourceTree = "<group>"; };
 		345A4D131AB9BFDA0034CC4D /* menuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = menuViewController.h; sourceTree = "<group>"; };
 		345A4D141AB9BFDA0034CC4D /* menuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = menuViewController.m; sourceTree = "<group>"; };
+		34790AAF1ABDBD81004BA83A /* highScores.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = highScores.h; sourceTree = "<group>"; };
+		34790AB01ABDBD81004BA83A /* highScores.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = highScores.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +113,6 @@
 				345A4CDF1AB856400034CC4D /* GameViewController.m */,
 				345A4D031AB859A40034CC4D /* gameTile.h */,
 				345A4D041AB859A40034CC4D /* gameTile.m */,
-				345A4D001AB859380034CC4D /* globalSettings.h */,
-				345A4D011AB859380034CC4D /* globalSettings.m */,
 				345A4CFD1AB857E00034CC4D /* MineHuntImages.h */,
 				345A4CFE1AB857E00034CC4D /* MineHuntImages.m */,
 				345A4CE11AB856400034CC4D /* Main.storyboard */,
@@ -128,6 +126,8 @@
 				345A4D111AB9B3BD0034CC4D /* gameButton.m */,
 				345A4D131AB9BFDA0034CC4D /* menuViewController.h */,
 				345A4D141AB9BFDA0034CC4D /* menuViewController.m */,
+				34790AAF1ABDBD81004BA83A /* highScores.h */,
+				34790AB01ABDBD81004BA83A /* highScores.m */,
 			);
 			path = MineHunt2;
 			sourceTree = "<group>";
@@ -265,8 +265,8 @@
 				345A4D151AB9BFDA0034CC4D /* menuViewController.m in Sources */,
 				345A4CE01AB856400034CC4D /* GameViewController.m in Sources */,
 				345A4CD81AB856400034CC4D /* AppDelegate.m in Sources */,
-				345A4D021AB859380034CC4D /* globalSettings.m in Sources */,
 				345A4CDB1AB856400034CC4D /* GameScene.m in Sources */,
+				34790AB11ABDBD81004BA83A /* highScores.m in Sources */,
 				345A4D121AB9B3BD0034CC4D /* gameButton.m in Sources */,
 				345A4CD51AB856400034CC4D /* main.m in Sources */,
 				345A4D051AB859A40034CC4D /* gameTile.m in Sources */,
@@ -462,6 +462,7 @@
 				345A4CF91AB856400034CC4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		345A4CFA1AB856400034CC4D /* Build configuration list for PBXNativeTarget "MineHunt2Tests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +471,7 @@
 				345A4CFC1AB856400034CC4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
