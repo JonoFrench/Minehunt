@@ -202,11 +202,9 @@ static NSShadow* _shadow = nil;
     {
         largestFontSize--;
     }
-    //label.font = [UIFont systemFontOfSize:largestFontSize];
-    NSLog(@"font size %f",largestFontSize);
+    //NSLog(@"font size %f",largestFontSize);
     
-    NSDictionary* textFontAttributes = @{NSFontAttributeName: [UIFont systemFontOfSize: largestFontSize], NSForegroundColorAttributeName: bombTextColour, NSParagraphStyleAttributeName: textStyle};
-    
+    NSDictionary* textFontAttributes = @{NSFontAttributeName: [UIFont systemFontOfSize: largestFontSize], NSForegroundColorAttributeName: bombTextColour, NSParagraphStyleAttributeName: textStyle};    
     CGFloat textTextHeight = [numBombs boundingRectWithSize: CGSizeMake(textRect.size.width, INFINITY)  options: NSStringDrawingUsesLineFragmentOrigin attributes: textFontAttributes context: nil].size.height;
     CGContextSaveGState(context);
     CGContextClipToRect(context, textRect);

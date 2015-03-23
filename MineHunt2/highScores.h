@@ -10,7 +10,6 @@
 
 @interface highScores : NSObject
 
-@property (strong,nonatomic) NSMutableArray *scoreArray;
 
 -(void)newScore: (int)timerTime;
 -(NSMutableArray*)getHighScores;

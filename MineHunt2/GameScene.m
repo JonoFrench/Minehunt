@@ -11,12 +11,27 @@
 #import "gameTile.h"
 #import "highScores.h"
 
+@interface GameScene()
+
+@property (nonatomic)    int flagCounter;
+@property (nonatomic)    int bombNumber;
+@property (nonatomic)    int numBombs;
+@property (nonatomic)    int numRows;
+@property (nonatomic)    int numCols;
+@property (nonatomic)    int timerTime;
+@property (nonatomic) CGFloat screenWidth;
+@property (nonatomic) CGFloat screenHeight;
+@property (nonatomic)    bool gameover;
+
+@end
+
 @implementation GameScene
 
 -(void)didMoveToView:(SKView *)view {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emptyTileNotification:) name:@"emptyTile" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameOverNotification:) name:@"gameOver" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkFlagsNotification:) name:@"checkFlags" object:nil];    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(questButtonNotification:) name:@"questButton" object:nil];
     
     _screenWidth = view.bounds.size.width;
     _screenHeight = view.bounds.size.height;
@@ -140,9 +155,17 @@
 -(void)emptyTileNotification:(NSNotification *) notification
 {
     gameTile * gt = [notification object];
-    [self checkAround:[gt getArrayCol] col:[gt getArrayRow]];
+    [self checkAround:[gt arrayRow] col:[gt arrayCol]];
 //    NSLog(@"emptyTile Triggered! row %d, col %d",[gt getArrayRow],[gt getArrayCol]);
 }
+
+
+-(void)questButtonNotification:(NSNotification *) notification
+{
+    _flagCounter++;
+    [self flagNumber];
+}
+
 
 -(void)checkFlagsNotification:(NSNotification *) notification
 {
@@ -179,7 +202,7 @@
     for (int x1=0; x1<_numRows; x1++) {
         for (int y1=0; y1<_numCols; y1++) {
             gameTile * gt = [[_mineArray objectAtIndex:x1]objectAtIndex:y1];
-            if([gt getGameOver] != true && [gt hasMine]==true)
+            if(![gt gameOver] && [gt hasMine]==true)
             {
                 [gt setGameOver:YES];
                 [gt showBomb:expcount];

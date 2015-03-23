@@ -8,6 +8,12 @@
 
 #import "highScores.h"
 
+@interface highScores()
+
+@property (strong,nonatomic) NSMutableArray *scoreArray;
+
+@end
+
 @implementation highScores
 
 

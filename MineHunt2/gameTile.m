@@ -9,6 +9,19 @@
 #import "gameTile.h"
 #import "MineHuntImages.h"
 
+@interface gameTile()
+
+@property (strong,nonatomic) SKTexture *tex;
+@property (strong,nonatomic) SKEmitterNode* smokeTrail;
+@property (strong,nonatomic) SKAction* soundAction;
+@property (nonatomic) CGRect tileSize;
+@property (nonatomic) int tileTap;
+@property (nonatomic) int width;
+@property (nonatomic) int xpos;
+@property (nonatomic) int ypos;
+@property (nonatomic) int numHints;
+@end
+
 @implementation gameTile
 
 -(instancetype) initWithPositionX:(int)x andY:(int)y Row:(int)row Column:(int)col TileSize:(int)tilesize
@@ -20,7 +33,6 @@
     
     if(self)
     {
-        _hasTile = true;
         _hasFlag = false;
         _hasMine = false;
         _hasHint = false;
@@ -39,19 +51,8 @@
     return self;
 }
 
-
--(bool)hasMine{ return _hasMine;}
--(bool)hasFlag{ return _hasFlag;}
 -(int)getHint{ return _numHints;}
--(int)getArrayCol{ return _arrayRow;}
--(int)getArrayRow{ return _arrayCol;}
--(bool)hasHint{ return _hasHint;}
--(bool)getGameOver{ return _gameOver;}
 
--(void)setGameOver:(bool)gameover
-{
-    _gameOver = gameover;
-}
 -(void)setHint:(int) hint
 {
     _numHints = hint;
@@ -61,7 +62,6 @@
 
 -(void)setMine:(bool)mine
 {
-    _hasTile = false;
     _hasMine = mine;
     _hasFlag = false;
     _hasHint = false;
@@ -79,31 +79,25 @@
     if (_hasHint == true){return;}
     
     _hasHint = true;
-    _hasTile = false;
     
     if (_numHints ==0)
     {
         _tex = [SKTexture textureWithImage:[MineHuntImages imageOfEmptyWithFrame:_tileSize]];
-    }
+        // we don't really want to display a 0
+        // but we do need to check our surroundings for other space!
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"emptyTile" object:self];}
     else
     {
         _tex = [SKTexture textureWithImage:[MineHuntImages imageOfBombCountWithFrame:_tileSize numBombs:[NSString stringWithFormat:@"%d",_numHints]]];
     }
     [self setTexture:_tex];
-    
-    // we don't really want to display a 0
-    // but we do need to check our surroundings for other space!
-    if(_numHints == 0)
-    {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"emptyTile" object:self];
-    }
+
 }
 
 -(void)showLetter:(NSString *)letter
 {
     _tex = [SKTexture textureWithImage:[MineHuntImages imageOfBombCountWithFrame:_tileSize numBombs:letter]];
     [self setTexture:_tex];
-    _hasTile = false;
 }
 
 -(void)showTile
