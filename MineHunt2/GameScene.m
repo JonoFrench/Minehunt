@@ -13,6 +13,7 @@
 
 @interface GameScene()
 
+@property (nonatomic,strong)    NSMutableArray *mineArray;
 @property (nonatomic)    int flagCounter;
 @property (nonatomic)    int bombNumber;
 @property (nonatomic)    int numBombs;
@@ -35,7 +36,7 @@
     
     _screenWidth = view.bounds.size.width;
     _screenHeight = view.bounds.size.height;
-    _numBombs = 8;
+    _numBombs = 10;
     _numRows = 8;
     _numCols = 8;
 
@@ -83,15 +84,18 @@
         }
         [_mineArray insertObject:colArray atIndex:x1];
     }
-
-    for (int mines=0; mines<=_numBombs; mines++) {
+    for (int mines=0; mines<_numBombs; mines++) {
         x = arc4random()%_numRows;
         y = arc4random()%_numCols;
-        gameTile * gt = [[_mineArray objectAtIndex:x]objectAtIndex:y]; //minearray[x][y];
+        gameTile * gt = [[_mineArray objectAtIndex:x]objectAtIndex:y];
         if(![gt hasMine])
         {
             [gt setMine:true];
-        }  
+        }
+        else
+        {
+            mines--;
+        }
     }
     
     //set hints
@@ -202,7 +206,7 @@
     for (int x1=0; x1<_numRows; x1++) {
         for (int y1=0; y1<_numCols; y1++) {
             gameTile * gt = [[_mineArray objectAtIndex:x1]objectAtIndex:y1];
-            if(![gt gameOver] && [gt hasMine]==true)
+            if(![gt gameOver] && [gt hasMine])
             {
                 [gt setGameOver:YES];
                 [gt showBomb:expcount];

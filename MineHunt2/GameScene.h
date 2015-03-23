@@ -11,7 +11,6 @@
 
 @interface GameScene : SKScene
 
-@property (nonatomic,strong)    NSMutableArray *mineArray;
 @property (nonatomic,retain)    SKLabelNode *timeLabel;
 @property (nonatomic,retain)    SKLabelNode *flagLabel;
 @property (nonatomic,retain)    gameButton *gameOver;
