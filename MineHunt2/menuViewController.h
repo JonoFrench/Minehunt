@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "GameViewController.h"
 
-@interface menuViewController : UIViewController
+@interface menuViewController : UIViewController <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (strong,nonatomic) GameViewController *p;
 - (IBAction)actPlay:(id)sender;
+@property (weak, nonatomic) IBOutlet UIScrollView *menuScroll;
 
 @end

@@ -36,9 +36,27 @@
     
     _screenWidth = view.bounds.size.width;
     _screenHeight = view.bounds.size.height;
-    _numBombs = 10;
-    _numRows = 8;
-    _numCols = 8;
+    
+    switch (self.gameType) {
+        case 0:
+            _numBombs = 10;
+            _numRows = 8;
+            _numCols = 8;
+            break;
+        case 1:
+            _numBombs = 14;
+            _numRows = 12;
+            _numCols = 12;
+            break;
+        case 2:
+            _numBombs = 24;
+            _numRows = 16;
+            _numCols = 16;
+            break;
+            
+        default:
+            break;
+    }
 
     _timerTime = 0;
     _flagCounter = _numBombs;
@@ -79,6 +97,7 @@
         NSMutableArray *colArray = [[NSMutableArray alloc]initWithCapacity:_numCols];
         for (int y1=0; y1<_numCols; y1++) {
             gt = [[gameTile alloc] initWithPositionX:(tilesize/2)+(y1*tilesize) andY:startpos-(x1*tilesize) Row:x1 Column:y1 TileSize:tilesize];
+            [gt setTileDelegate:self];
             [colArray insertObject:gt atIndex:y1];
             [self addChild:gt];
         }
@@ -163,13 +182,11 @@
 //    NSLog(@"emptyTile Triggered! row %d, col %d",[gt getArrayRow],[gt getArrayCol]);
 }
 
-
 -(void)questButtonNotification:(NSNotification *) notification
 {
     _flagCounter++;
     [self flagNumber];
 }
-
 
 -(void)checkFlagsNotification:(NSNotification *) notification
 {
@@ -191,7 +208,7 @@
         _gameover = true;        
         //add the score to the highscore
         highScores *hs = [[highScores alloc]init];
-        [hs newScore:_timerTime];
+        [hs newScore:_timerTime type:self.gameType];
         SKTexture *tex = [SKTexture textureWithImage:[MineHuntImages imageOfWonWithFrame:CGRectMake(0, 0,_screenWidth/2,(_screenWidth/2)/3)]];
         _gameOver = [[gameButton alloc]initWithTexture:tex];
         [_gameOver setPosition:CGPointMake(_screenWidth/2, 50+(_screenWidth/2)/3)];
@@ -249,7 +266,12 @@
     [_flagLabel setText:[NSString stringWithFormat:@"Flag: %d",_flagCounter]];
 }
 
+#pragma gameTile Delegates
 
+-(bool)checkFlag
+{
+    return _flagCounter ==0 ? false:true;
+}
 
 
 @end

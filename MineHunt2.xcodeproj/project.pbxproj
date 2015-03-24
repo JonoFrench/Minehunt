@@ -23,6 +23,8 @@
 		345A4D121AB9B3BD0034CC4D /* gameButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 345A4D111AB9B3BD0034CC4D /* gameButton.m */; };
 		345A4D151AB9BFDA0034CC4D /* menuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 345A4D141AB9BFDA0034CC4D /* menuViewController.m */; };
 		34790AB11ABDBD81004BA83A /* highScores.m in Sources */ = {isa = PBXBuildFile; fileRef = 34790AB01ABDBD81004BA83A /* highScores.m */; };
+		34790AB31AC098AC004BA83A /* menuScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34790AB21AC098AC004BA83A /* menuScrollView.xib */; };
+		34790AB61AC098DA004BA83A /* menuScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34790AB51AC098DA004BA83A /* menuScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,9 @@
 		345A4D141AB9BFDA0034CC4D /* menuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = menuViewController.m; sourceTree = "<group>"; };
 		34790AAF1ABDBD81004BA83A /* highScores.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = highScores.h; sourceTree = "<group>"; };
 		34790AB01ABDBD81004BA83A /* highScores.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = highScores.m; sourceTree = "<group>"; };
+		34790AB21AC098AC004BA83A /* menuScrollView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = menuScrollView.xib; sourceTree = "<group>"; };
+		34790AB41AC098D9004BA83A /* menuScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = menuScrollView.h; sourceTree = "<group>"; };
+		34790AB51AC098DA004BA83A /* menuScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = menuScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +133,9 @@
 				345A4D141AB9BFDA0034CC4D /* menuViewController.m */,
 				34790AAF1ABDBD81004BA83A /* highScores.h */,
 				34790AB01ABDBD81004BA83A /* highScores.m */,
+				34790AB21AC098AC004BA83A /* menuScrollView.xib */,
+				34790AB41AC098D9004BA83A /* menuScrollView.h */,
+				34790AB51AC098DA004BA83A /* menuScrollView.m */,
 			);
 			path = MineHunt2;
 			sourceTree = "<group>";
@@ -241,6 +249,7 @@
 				345A4D0E1AB897160034CC4D /* spark.sks in Resources */,
 				345A4CE81AB856400034CC4D /* LaunchScreen.xib in Resources */,
 				345A4CE51AB856400034CC4D /* Images.xcassets in Resources */,
+				34790AB31AC098AC004BA83A /* menuScrollView.xib in Resources */,
 				345A4D071AB88C600034CC4D /* explosion.caf in Resources */,
 				345A4D0F1AB897160034CC4D /* spark.png in Resources */,
 				345A4CE31AB856400034CC4D /* Main.storyboard in Resources */,
@@ -267,6 +276,7 @@
 				345A4CD81AB856400034CC4D /* AppDelegate.m in Sources */,
 				345A4CDB1AB856400034CC4D /* GameScene.m in Sources */,
 				34790AB11ABDBD81004BA83A /* highScores.m in Sources */,
+				34790AB61AC098DA004BA83A /* menuScrollView.m in Sources */,
 				345A4D121AB9B3BD0034CC4D /* gameButton.m in Sources */,
 				345A4CD51AB856400034CC4D /* main.m in Sources */,
 				345A4D051AB859A40034CC4D /* gameTile.m in Sources */,
@@ -394,6 +404,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MineHunt2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -404,6 +415,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MineHunt2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

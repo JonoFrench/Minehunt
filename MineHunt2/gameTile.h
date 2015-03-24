@@ -15,6 +15,13 @@ typedef enum tagTileState {
 	kTileStateUnTouched
 } TileState;
 
+
+@protocol tileDelegate <NSObject>
+
+-(bool)checkFlag;
+
+@end
+
 @interface gameTile :SKSpriteNode
 {
     @private TileState state;
@@ -28,6 +35,7 @@ typedef enum tagTileState {
 @property (nonatomic) int arrayCol;
 @property (nonatomic) int arrayRow;
 @property (nonatomic) int gameOver;
+@property (nonatomic,weak) id <tileDelegate> tileDelegate;
 
 -(id) initWithPositionX:(int)x andY:(int)y Row:(int)row Column:(int)col TileSize:(int)tilesize;
 -(int)getHint;
@@ -40,3 +48,4 @@ typedef enum tagTileState {
 -(void)showLetter:(NSString *)letter;
 
 @end
+

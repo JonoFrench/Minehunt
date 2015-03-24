@@ -76,7 +76,7 @@
 -(void)showHint
 {
     // check if we've already been here
-    if (_hasHint == true){return;}
+    if (_hasHint || _hasFlag) return;
     
     _hasHint = true;
     
@@ -119,6 +119,11 @@
 
 -(void)showFlag
 {
+    // check that all the flags available havent been planted. Use the delegate call back to GameScene
+    if (![self.tileDelegate checkFlag]) {
+        return;
+    }
+    
     if (!_hasHint)
     {
         _tex = [SKTexture textureWithImage:[MineHuntImages imageOfFlagWithFrame:_tileSize]];

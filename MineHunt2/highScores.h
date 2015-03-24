@@ -11,8 +11,8 @@
 @interface highScores : NSObject
 
 
--(void)newScore: (int)timerTime;
--(NSMutableArray*)getHighScores;
+-(void)newScore: (int)timerTime type:(int)gameType;
+-(NSMutableArray*)getHighScores:(int)gameType;
 
 @end
 

@@ -22,24 +22,25 @@
    self = [super init];
     if(self)
     {
-        [self getHighScores];
+//        [self getHighScores];
     }
     
     return self;
 }
 
--(void)SaveHighScores
+-(void)SaveHighScores:(int)gameType
 {
     NSUserDefaults *standardDefaults = [NSUserDefaults standardUserDefaults];
     NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:_scoreArray];
-    [standardDefaults setObject:myEncodedObject forKey:@"scores"];
+    NSString *keyName = [NSString stringWithFormat:@"scores%d",gameType];
+    [standardDefaults setObject:myEncodedObject forKey:keyName];
     [standardDefaults synchronize];
 
 }
 
--(void)newScore: (int)timerTime
+-(void)newScore: (int)timerTime type:(int)gameType
 {
-    _scoreArray = [self getHighScores];
+    _scoreArray = [self getHighScores: gameType];
     for (int i=0;i<10;i++){
         highScore *hs = [_scoreArray objectAtIndex:i];
         if(timerTime <= [hs gametime ])
@@ -53,7 +54,7 @@
                [newhs setGamedate:[f stringFromDate:date]];
                [_scoreArray insertObject:newhs atIndex:i];
                [_scoreArray removeLastObject];
-               [self SaveHighScores];
+               [self SaveHighScores:gameType];
                return;
            }
 
@@ -62,14 +63,15 @@
 }
 
 
--(NSMutableArray*)getHighScores
+-(NSMutableArray*)getHighScores: (int)gameType
 {
     _scoreArray = [[NSMutableArray alloc]init];
     NSUserDefaults *standardDefaults = [NSUserDefaults standardUserDefaults];
     //check if the object does not exist
-    if([standardDefaults objectForKey:@"scores"]!=nil)
+    NSString *keyName = [NSString stringWithFormat:@"scores%d",gameType];
+    if([standardDefaults objectForKey:keyName]!=nil)
     {
-        NSData *data= [standardDefaults objectForKey:@"scores"];
+        NSData *data= [standardDefaults objectForKey:keyName];
 
         _scoreArray = (NSMutableArray*) [NSKeyedUnarchiver unarchiveObjectWithData:data];
     }
@@ -78,9 +80,14 @@
         for(int i=0;i<10;i++)
         {
             highScore *hs = [[highScore alloc]init];
+            NSDate *date = [NSDate date];
+            NSDateFormatter * f =[[NSDateFormatter alloc]init];
+            [f setDateFormat:@"dd-MM-yyyy"];
+            [hs setGamedate:[f stringFromDate:date]];
+            [hs setGametime:3600];
             [_scoreArray addObject:hs];
         }
-        [self SaveHighScores];
+        [self SaveHighScores:gameType];
     }
     return _scoreArray;
 }

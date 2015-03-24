@@ -13,5 +13,5 @@
 @interface GameViewController : UIViewController
 
 @property (strong,nonatomic) GameScene *scene;
-
+@property (nonatomic) int gameType;
 @end

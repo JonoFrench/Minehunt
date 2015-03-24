@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="735-3C-xQ4">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -51,7 +50,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mine Hunt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="avE-0Q-kwo">
-                                <rect key="frame" x="56" y="45" width="488" height="52"/>
+                                <rect key="frame" x="56" y="28" width="488" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="488" placeholder="YES" id="e86-5d-F9j"/>
                                     <constraint firstAttribute="height" constant="52" id="xMA-kb-BzN"/>
@@ -60,21 +59,34 @@
                                 <color key="textColor" red="0.94509803920000002" green="0.95294117649999999" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDB-Rx-Kl0">
+                                <rect key="frame" x="16" y="88" width="568" height="400"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" placeholder="YES" id="Q8h-EB-Rwo"/>
+                                    <constraint firstAttribute="width" constant="568" placeholder="YES" id="fKy-tb-wUp"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="oNv-Vx-Tvh" secondAttribute="trailing" constant="40" id="31Z-BN-9Ja"/>
                             <constraint firstAttribute="centerX" secondItem="oNv-Vx-Tvh" secondAttribute="centerX" id="7uy-do-xyT"/>
+                            <constraint firstItem="aDB-Rx-Kl0" firstAttribute="leading" secondItem="BWZ-a4-Mt7" secondAttribute="leadingMargin" id="93I-nS-sUO"/>
                             <constraint firstItem="avE-0Q-kwo" firstAttribute="leading" secondItem="BWZ-a4-Mt7" secondAttribute="leadingMargin" constant="40" id="BXL-ks-toh"/>
                             <constraint firstItem="ioV-fO-uKs" firstAttribute="top" secondItem="oNv-Vx-Tvh" secondAttribute="bottom" constant="50" id="Do1-5y-fgA"/>
-                            <constraint firstItem="avE-0Q-kwo" firstAttribute="top" secondItem="9gd-Bt-uKO" secondAttribute="bottom" constant="25" id="EFc-6V-g30"/>
+                            <constraint firstItem="avE-0Q-kwo" firstAttribute="top" secondItem="9gd-Bt-uKO" secondAttribute="bottom" constant="8" id="EFc-6V-g30"/>
                             <constraint firstAttribute="trailingMargin" secondItem="avE-0Q-kwo" secondAttribute="trailing" constant="40" id="G9H-bw-EJu"/>
+                            <constraint firstItem="oNv-Vx-Tvh" firstAttribute="top" secondItem="aDB-Rx-Kl0" secondAttribute="bottom" constant="25" id="Wvk-gz-QL8"/>
+                            <constraint firstItem="aDB-Rx-Kl0" firstAttribute="trailing" secondItem="BWZ-a4-Mt7" secondAttribute="trailingMargin" id="Y6u-3A-GO0"/>
+                            <constraint firstItem="aDB-Rx-Kl0" firstAttribute="top" secondItem="avE-0Q-kwo" secondAttribute="bottom" constant="8" id="dAt-iG-4gx"/>
                             <constraint firstItem="oNv-Vx-Tvh" firstAttribute="leading" secondItem="BWZ-a4-Mt7" secondAttribute="leadingMargin" constant="40" id="zrD-et-LiM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iyp-fc-YKI"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="menuScroll" destination="aDB-Rx-Kl0" id="Ehb-4i-6c0"/>
                         <outlet property="playButton" destination="oNv-Vx-Tvh" id="bnu-qc-SwY"/>
                     </connections>
                 </viewController>
