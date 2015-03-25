@@ -22,9 +22,7 @@
    self = [super init];
     if(self)
     {
-//        [self getHighScores];
     }
-    
     return self;
 }
 

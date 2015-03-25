@@ -18,11 +18,8 @@
 
 @interface highScore : NSObject
 {
-    
     int _time;
     NSString *_date;
-    
-    
 }
 @property (nonatomic) int gametime;
 @property (nonatomic,retain) NSString *gamedate;

@@ -159,6 +159,8 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"gameOver" object:self];
 }
 
+#pragma mark touch 
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     if(_gameOver) return;

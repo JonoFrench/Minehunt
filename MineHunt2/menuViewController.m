@@ -15,11 +15,12 @@
 @interface menuViewController ()
 
 @property (nonatomic) int gameType;
-@property (nonatomic,strong) NSMutableArray* gameViews;
 
 @end
 
 @implementation menuViewController
+
+#pragma mark - View
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,7 +46,7 @@
         
         [subview setUp];
         [subview setGameType:i];
-        //subview.translatesAutoresizingMaskIntoConstraints = YES;
+
         switch (i) {
             case 0:
                 [subview.lblPage setText:@"Easy Game 8*8 10 Bombs"];
@@ -69,23 +70,10 @@
     }
     
     self.menuScroll.userInteractionEnabled= YES;
-    
     self.menuScroll.contentSize = CGSizeMake(self.menuScroll.frame.size.width * 3, self.menuScroll.frame.size.height);
        [self.menuScroll layoutIfNeeded];
 }
 
--(void)viewWillLayoutSubviews
-{
-    [super viewWillLayoutSubviews];
-}
-
--(void)viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
-
-
-
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -103,11 +91,15 @@
     [self.navigationController pushViewController:_p animated:YES];
 }
 
+#pragma mark - Scroll Delegates
+
+// no vertical scrolling please
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     [scrollView setContentOffset:CGPointMake(scrollView.contentOffset.x, 0)];
 }
 
+//get the game number of the page
 -(void)scrollViewDidEndDecelerating:(UIScrollView*)sender{
     CGRect frame  = [[UIScreen mainScreen]applicationFrame];
     float roundedValue = round(sender.contentOffset.x /frame.size.width);

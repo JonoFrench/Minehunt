@@ -266,7 +266,7 @@
     [_flagLabel setText:[NSString stringWithFormat:@"Flag: %d",_flagCounter]];
 }
 
-#pragma gameTile Delegates
+#pragma mark  gameTile Delegates
 
 -(bool)checkFlag
 {
