@@ -15,7 +15,7 @@
 @interface menuViewController ()
 
 @property (nonatomic) int gameType;
-//@property (nonatomic,strong) NSMutableArray *scores;
+@property (nonatomic,strong) NSMutableArray* gameViews;
 
 @end
 
@@ -28,20 +28,24 @@
     self.menuScroll.delegate = self;
     self.gameType = 0;
 
+
 }
 
-
--(void)viewDidLayoutSubviews
+-(void)viewDidAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+
     for (int i=0; i<3; i++) {
         CGRect frame;
         frame.origin.x = self.menuScroll.frame.size.width * i;
         frame.origin.y = 0;
         frame.size = self.menuScroll.frame.size;
-        menuScrollView* subview = [[[NSBundle mainBundle]loadNibNamed:@"menuScrollView" owner:self options:nil]firstObject];
-        [subview setGameType:i];
+        menuScrollView* subview;
+        subview = [[[NSBundle mainBundle]loadNibNamed:@"menuScrollView" owner:self options:nil]firstObject];
+        
         [subview setUp];
-        subview.translatesAutoresizingMaskIntoConstraints = YES;
+        [subview setGameType:i];
+        //subview.translatesAutoresizingMaskIntoConstraints = YES;
         switch (i) {
             case 0:
                 [subview.lblPage setText:@"Easy Game 8*8 10 Bombs"];
@@ -57,18 +61,30 @@
         }
         
 
-        if(i==1)
-        {
-            [subview setBackgroundColor:[UIColor redColor]];
-        }
         [subview setFrame:frame];
-
+        
         [subview layoutIfNeeded];
         [self.menuScroll addSubview:subview];
+        [self.menuScroll layoutIfNeeded];
     }
     
-    self.menuScroll.contentSize = CGSizeMake(self.menuScroll.frame.size.width * 3, self.menuScroll.frame.size.height);
     self.menuScroll.userInteractionEnabled= YES;
+    
+    self.menuScroll.contentSize = CGSizeMake(self.menuScroll.frame.size.width * 3, self.menuScroll.frame.size.height);
+       [self.menuScroll layoutIfNeeded];
+}
+
+-(void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+}
+
+-(void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+
+
+
 }
 
 - (void)didReceiveMemoryWarning {

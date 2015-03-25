@@ -61,7 +61,6 @@
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDB-Rx-Kl0">
                                 <rect key="frame" x="16" y="88" width="568" height="400"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="400" placeholder="YES" id="Q8h-EB-Rwo"/>
                                     <constraint firstAttribute="width" constant="568" placeholder="YES" id="fKy-tb-wUp"/>

@@ -7,6 +7,7 @@
 //
 
 #import "menuScrollView.h"
+#import "scoreTableViewCell.h"
 
 @interface menuScrollView()
 
@@ -23,6 +24,7 @@
     self = [super init];
     if(self)
     {
+
     }
     return self;
 }
@@ -39,6 +41,7 @@
 
 -(void)setUp
 {
+    [self.tblScores registerNib:[UINib nibWithNibName:@"scoreTableViewCell" bundle:nil] forCellReuseIdentifier:@"scoreCell"];
     self.scores = [[[highScores alloc]init]getHighScores:self.gameType];
     NSLog(@"Scores %@",self.scores);
     self.tblScores.delegate=self;
@@ -49,11 +52,14 @@
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[UITableViewCell alloc]init];
+    NSLog(@"Cell");
+    scoreTableViewCell *cell = [self.tblScores dequeueReusableCellWithIdentifier:@"scoreCell" forIndexPath:indexPath];
     highScore *score = [self.scores objectAtIndex:indexPath.row];
     int sec = score.gametime %60;
     int min = score.gametime /60;
-    [cell.textLabel setText:[NSString stringWithFormat:@"%02ld: %@ %02d:%02d",(long)indexPath.row+1,score.gamedate,min,sec]];
+    [cell.lblRank setText:[NSString stringWithFormat:@"%02ld",(long)indexPath.row+1]];
+    [cell.lblDate setText:[NSString stringWithFormat:@"%@",score.gamedate]];
+    [cell.lblTime setText:[NSString stringWithFormat:@"%02d:%02d",min,sec]];
     return cell;
 }
 
@@ -62,6 +68,13 @@
     return 10;
 }
 
-
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    int heightDiv = 10;
+    if (self.tblScores.frame.size.height/10 <40) {
+        heightDiv = 5;
+    }
+    return self.tblScores.frame.size.height/heightDiv;
+}
 
 @end

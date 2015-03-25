@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34465DB91AC1DB330007155A /* scoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34465DB71AC1DB330007155A /* scoreTableViewCell.m */; };
+		34465DBA1AC1DB330007155A /* scoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34465DB81AC1DB330007155A /* scoreTableViewCell.xib */; };
 		345A4CD51AB856400034CC4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 345A4CD41AB856400034CC4D /* main.m */; };
 		345A4CD81AB856400034CC4D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 345A4CD71AB856400034CC4D /* AppDelegate.m */; };
 		345A4CDB1AB856400034CC4D /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 345A4CDA1AB856400034CC4D /* GameScene.m */; };
@@ -38,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		34465DB61AC1DB330007155A /* scoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scoreTableViewCell.h; sourceTree = "<group>"; };
+		34465DB71AC1DB330007155A /* scoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = scoreTableViewCell.m; sourceTree = "<group>"; };
+		34465DB81AC1DB330007155A /* scoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = scoreTableViewCell.xib; sourceTree = "<group>"; };
 		345A4CCF1AB856400034CC4D /* MineHunt2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MineHunt2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		345A4CD31AB856400034CC4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		345A4CD41AB856400034CC4D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -136,6 +141,9 @@
 				34790AB21AC098AC004BA83A /* menuScrollView.xib */,
 				34790AB41AC098D9004BA83A /* menuScrollView.h */,
 				34790AB51AC098DA004BA83A /* menuScrollView.m */,
+				34465DB61AC1DB330007155A /* scoreTableViewCell.h */,
+				34465DB71AC1DB330007155A /* scoreTableViewCell.m */,
+				34465DB81AC1DB330007155A /* scoreTableViewCell.xib */,
 			);
 			path = MineHunt2;
 			sourceTree = "<group>";
@@ -250,6 +258,7 @@
 				345A4CE81AB856400034CC4D /* LaunchScreen.xib in Resources */,
 				345A4CE51AB856400034CC4D /* Images.xcassets in Resources */,
 				34790AB31AC098AC004BA83A /* menuScrollView.xib in Resources */,
+				34465DBA1AC1DB330007155A /* scoreTableViewCell.xib in Resources */,
 				345A4D071AB88C600034CC4D /* explosion.caf in Resources */,
 				345A4D0F1AB897160034CC4D /* spark.png in Resources */,
 				345A4CE31AB856400034CC4D /* Main.storyboard in Resources */,
@@ -277,6 +286,7 @@
 				345A4CDB1AB856400034CC4D /* GameScene.m in Sources */,
 				34790AB11ABDBD81004BA83A /* highScores.m in Sources */,
 				34790AB61AC098DA004BA83A /* menuScrollView.m in Sources */,
+				34465DB91AC1DB330007155A /* scoreTableViewCell.m in Sources */,
 				345A4D121AB9B3BD0034CC4D /* gameButton.m in Sources */,
 				345A4CD51AB856400034CC4D /* main.m in Sources */,
 				345A4D051AB859A40034CC4D /* gameTile.m in Sources */,
